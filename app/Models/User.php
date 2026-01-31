@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(Role::class)->withDefault();
     }
-    public function images()
+    public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }

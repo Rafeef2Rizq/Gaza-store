@@ -14,7 +14,7 @@ class Product extends Model
    {
       return $this->belongsTo(Category::class)->withDefault();
    }
-   public function images()
+   public function image()
    {
       return $this->morphOne(Image::class, 'imageable')->where('type', 'main');
    }
@@ -33,5 +33,23 @@ class Product extends Model
    public function orderDetails()
    {
       return $this->hasMany(OrderDetail::class);
+   }
+   public function getImgPathAttribute()
+   {
+      return $this->image
+         ? asset('images/' . $this->image->path)
+         : asset('images/no/notfound.jpeg');
+
+   }
+   public function getTransNameAttribute()
+   {
+      $name = json_decode($this->name, true);
+      return $name[app()->getLocale()] ?? $name['en'];
+   }
+
+   public function getTransDescriptionAttribute()
+   {
+      $description = json_decode($this->description, true);
+      return $description[app()->getLocale()] ?? $description['en'];
    }
 }

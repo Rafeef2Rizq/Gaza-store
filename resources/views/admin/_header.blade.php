@@ -19,32 +19,43 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
     @yield('css')
     @if(App::getLocale() == 'ar')
-    <style>
-        body {
-            direction: rtl;
-            text-align: right;
-        }
+        <style>
+            body {
+                direction: rtl;
+                text-align: right;
+            }
 
-        .sidebar {
-            padding: 0;
-        }
+            .sidebar {
+                padding: 0;
+            }
 
-        .sidebar .nav-item .nav-link {
-            text-align: right;
-        }
+            .sidebar .nav-item .nav-link {
+                text-align: right;
+            }
 
-        .sidebar .nav-item .nav-link[data-toggle=collapse]::after {
-            float: left;
-            transform: rotate(180deg);
-        }
+            .sidebar .nav-item .nav-link[data-toggle=collapse]::after {
+                float: left;
+                transform: rotate(180deg);
+            }
 
-        .ml-auto,
-        .mx-auto {
-            margin-left: unset !important;
-            margin-right: auto !important;
-        }
-    </style>
+            .ml-auto,
+            .mx-auto {
+                margin-left: unset !important;
+                margin-right: auto !important;
+            }
+
+            .topbar .dropdown .dropdown-menu {
+                right: -120%;
+
+            }
+
+            .img-profile {
+                object-fit: cover;
+            }
+        </style>
     @endif
 </head>
