@@ -83,21 +83,22 @@
                                 @php
                                     $count = Auth::user()->unreadNotifications()->count();
                                  @endphp
-                                @if ($count != 0)
-                                        <span class="badge badge-danger badge-counter">
-                                            @php
 
-                                                if ($count > 5) {
-                                                    echo $count . '+';
-                                                } else {
-                                                    echo $count;
-                                                }
-                                            @endphp
-                                        </span>
-                                    </a>
+                                <span class="{{ $count == 0 ? 'd-none' : 'badge badge-danger' }} badge-counter"
+                                    data-count="{{ $count }}">
+                                    @php
+
+                                        if ($count > 5) {
+                                            echo $count . '5+';
+                                        } else {
+                                            echo $count;
+                                        }
+                                    @endphp
+                                </span>
+                            </a>
 
 
-                                @endif
+
 
 
                             <!-- Dropdown - Alerts -->
